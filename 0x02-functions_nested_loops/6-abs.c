@@ -1,6 +1,6 @@
 /**
  * _abs - computes the absolute value of a number
- * @n - value to be computed
+ * @n: value to be computed
  *
  * Return: the absolute value of n
  */
