@@ -15,9 +15,6 @@ int main(void)
 	for (i = 0; i < 16; ++i)
 	/*16 is used because its fib num is less than 4,000,000*/
 	{
-		num1 += num2;
-		num2 += num1;
-
 		if (num1 % 2 == 0)
 		{
 			sum += num1;
@@ -27,6 +24,9 @@ int main(void)
 		{
 			sum += num2;
 		}
+
+		num1 += num2;
+		num2 += num1;
 	}
 
 	printf("%lu\n", sum);
