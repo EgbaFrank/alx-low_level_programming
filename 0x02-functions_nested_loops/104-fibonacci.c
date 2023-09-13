@@ -31,14 +31,21 @@ int main(void)
 			printf("%lu%lu, %lu%lu\n", fib1_num1, fib1_num2, fib2_num1, fib2_num2);
 
 		fib1_num2 += fib2_num2;
-		if (((fib1_num2 + fib2_num2) % 1000000000) >= 1)
+		if ((fib1_num2 / 1000000000) >= 1)
+		{
+			fib1_num2 %= 1000000000;
 			fib1_num1 += 1;
+		}
+
 
 		fib1_num1 += fib2_num1;
 
 		fib2_num2 += fib1_num2;
-		if (((fib2_num2 + fib1_num2) % 1000000000) >= 1)
+		if ((fib2_num2 / 1000000000) >= 1)
+		{
+			fib2_num2 %= 1000000000;
 			fib2_num1 += 1;
+		}
 
 		fib2_num1 += fib1_num1;
 	}
