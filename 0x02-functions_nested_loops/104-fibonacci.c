@@ -36,8 +36,6 @@ int main(void)
 			fib1_num2 %= 1000000000;
 			fib1_num1 += 1;
 		}
-
-
 		fib1_num1 += fib2_num1;
 
 		fib2_num2 += fib1_num2;
@@ -46,7 +44,6 @@ int main(void)
 			fib2_num2 %= 1000000000;
 			fib2_num1 += 1;
 		}
-
 		fib2_num1 += fib1_num1;
 	}
 	return (0);
