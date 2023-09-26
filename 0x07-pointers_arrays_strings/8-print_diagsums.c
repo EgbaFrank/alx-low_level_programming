@@ -18,11 +18,12 @@ void print_diagsums(int *a, int size)
 		sum1 += *(a + p);
 	}
 
-	for (i = 0; i < size; ++i)
+	i = 0;
+	for (; i < size; ++i)
 	{
 		p = (i * size) + (size - 1 - i);
 		sum2 += *(a + p);
 	}
 
-	printf("%i %i\n", sum1, sum2);
+	printf("%d, %d\n", sum1, sum2);
 }
