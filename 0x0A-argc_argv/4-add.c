@@ -11,19 +11,22 @@
 
 int main(int argc, char *argv[])
 {
-	int i, sum = 0;
+	int i, n, sum = 0;
+	char *endptr;
 
 	for (i = 1; i < argc; ++i)
 	{
-		if (*argv[i] >= '0' && *argv[i] <= '9')
+		n = strtol(argv[i], &endptr, 10);
+
+		if (*endptr != '\0')
 		{
-			sum += atoi(argv[i]);
+			printf("Error\n");
+			return (1);
 		}
 
 		else
 		{
-			printf("Error\n");
-			return (1);
+			sum += n;
 		}
 
 	}
