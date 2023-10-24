@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * delete_nodeint_at_index - deletes a node at a specific 
+ * delete_nodeint_at_index - deletes a node at a specific
  * index in a listint_t list
  * @head: double pointer to the first node
  * @index: what node to be deleted
@@ -30,7 +30,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 
 	else
 	{
-		while (count != index && temp->next != NULL)
+		while (count != (index - 1) && temp->next != NULL)
 		{
 			temp = temp->next;
 			++count;
