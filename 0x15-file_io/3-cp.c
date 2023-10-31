@@ -56,9 +56,9 @@ size_t cp(char *file1, char *file2)
 		if (wt != rd)
 		{
 			wt = -1;
+			break;
 		}
 	}
-
 	if (rd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: cannot read from %s\n", file1);
