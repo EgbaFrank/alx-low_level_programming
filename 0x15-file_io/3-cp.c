@@ -50,7 +50,15 @@ size_t cp(char *file1, char *file2)
 		exit(99);
 	}
 	while ((rd = read(fd1, buf, BUF_SIZE)) > 0)
+	{
 		wt = write(fd2, buf, rd);
+
+		if (wt != rd)
+		{
+			wt = -1;
+		}
+	}
+
 	if (rd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: cannot read from %s\n", file1);
