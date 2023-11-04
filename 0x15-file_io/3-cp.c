@@ -12,13 +12,13 @@ void _close(int fd1, int fd2)
 {
 	if (close(fd1) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd1);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
 		exit(100);
 	}
 
 	if (close(fd2) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
 		exit(100);
 	}
 }
@@ -41,29 +41,29 @@ size_t cp(char *file1, char *file2)
 
 	if (fd1 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: cannot read from file %s\n", file1);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file1);
 		exit(98);
 	}
 	if (fd2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: cannot write to %s\n", file2);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file2);
 		exit(99);
 	}
 	while ((rd = read(fd1, buf, BUF_SIZE)) > 0)
 	{
 		wt = write(fd2, buf, rd);
+		if (wt == -1 || wt != rd)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file2);
+			_close(fd1, fd2);
+			exit(99);
+		}
+	}
 	if (rd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: cannot read from %s\n", file1);
+		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", file1);
 		_close(fd1, fd2);
 		exit(98);
-	}
-	if (wt == -1 || wt != rd)
-	{
-		dprintf(STDERR_FILENO, "Error: cannot write to %s\n", file2);
-		_close(fd1, fd2);
-		exit(99);
-	}
 	}
 	_close(fd1, fd2);
 
