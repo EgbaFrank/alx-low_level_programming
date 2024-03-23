@@ -37,7 +37,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 	cur = *h;
 	/* Handling insertion at the end and at a given index */
-	for (i = 0; cur != NULL && i < idx; ++i)
+	for (i = 0; cur != NULL && i < (idx - 1); ++i)
 		cur = cur->next;
 	/* if idx is out of range */
 	if (cur == NULL)
