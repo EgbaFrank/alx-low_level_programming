@@ -9,14 +9,13 @@
 
 void hash_table_print(const hash_table_t *ht)
 {
-	unsigned long int i, flag;
+	unsigned long int i, flag = 0;
 	hash_node_t *node;
 	/* Return if list doesn't exist */
 	if (ht == NULL || ht->array == NULL)
 		return;
 
 	/* Handle print format */
-	flag = 0;
 	printf("{");
 	for (i = 0; i < ht->size; ++i)
 	{
