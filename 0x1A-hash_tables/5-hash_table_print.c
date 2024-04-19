@@ -9,8 +9,10 @@
 
 void hash_table_print(const hash_table_t *ht)
 {
-	unsigned long int i, flag = 0;
+	char c = 0;
+	unsigned long int i;
 	hash_node_t *node;
+
 	/* Return if list doesn't exist */
 	if (ht == NULL || ht->array == NULL)
 		return;
@@ -24,8 +26,7 @@ void hash_table_print(const hash_table_t *ht)
 		while (node != NULL)
 		{
 			if (flag == 1)
-				printf("; ");
-
+				printf(", ");
 			/* Print key: value pair */
 			printf("'%s': '%s'", node->key, node->value);
 
