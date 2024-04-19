@@ -12,7 +12,7 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int i, flag;
 	hash_node_t *node;
 	/* Return if list doesn't exist */
-	if (ht == NULL)
+	if (ht == NULL || ht->array == NULL)
 		return;
 
 	/* Handle print format */
@@ -26,8 +26,10 @@ void hash_table_print(const hash_table_t *ht)
 		{
 			if (flag == 1)
 				printf("; ");
+
 			/* Print key: value pair */
 			printf("'%s': '%s'", node->key, node->value);
+
 			/* Print colliding node, if any */
 			node = node->next;
 			flag = 1;
