@@ -10,9 +10,6 @@ OBJ = $(SRC:.c=.o)
 # Name of executable to be created
 NAME = school
 
-# Program to delete files
-RM = rm -f
-
 # Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
