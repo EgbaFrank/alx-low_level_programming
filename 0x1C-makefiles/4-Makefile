@@ -1,0 +1,43 @@
+# Compiler to be used
+CC:= gcc
+
+# Source files
+SRC:= $(wildcard *.c)
+
+# Object files
+OBJ:= $(SRC:.c=.o)
+
+# Name of executable to be created
+NAME:= school
+
+# Program to delete files
+RM:= rm -f
+
+# Compiler flags
+CFLAGS:= -Wall -Werror -Wextra -pedantic
+
+.PHONY: all clean oclean fclean re
+
+all: $(NAME)
+
+# Linking objects files to create executables
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+# Generating object files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Deletes all Emacs and Vim temporary files along with the executable
+clean:
+	$(RM) *~ $(NAME)
+
+# Deletes the object files
+oclean:
+	$(RM) $(OBJ)
+
+# Deletes all Emacs and Vim temporary files, the executable, and the object files
+fclean: clean oclean
+
+# Forces recompilation of all source files
+re: oclean all
