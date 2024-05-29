@@ -14,7 +14,7 @@ NAME = school
 RM = rm -f
 
 # Compiler flags
-CFLAGS:= -Wall -Werror -Wextra -pedantic
+CFLAGS = -Wall -Werror -Wextra -pedantic
 
 all: $(NAME)
 

@@ -16,7 +16,7 @@ RM = rm -f
 # Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-.PHONY: all
+.PHONY: all clean oclean fclean re
 
 # Linking objects files to create executables
 all: m.h $(OBJ)
