@@ -1,22 +1,22 @@
 # Compiler to be used
-CC:= gcc
+CC = gcc
 
 # Source files
-SRC:= main.c school.c
+SRC = main.c school.c
 
 # Object files
-OBJ:= $(SRC:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 # Name of executable to be created
-NAME:= school
+NAME = school
 
 # Program to delete files
-RM:= rm -f
+RM = rm -f
 
 # Compiler flags
-CFLAGS:= -Wall -Werror -Wextra -pedantic
+CFLAGS = -Wall -Werror -Wextra -pedantic
 
-.PHONY: all clean oclean fclean re
+.PHONY: all
 
 # Linking objects files to create executables
 all: m.h $(OBJ)

@@ -1,22 +1,18 @@
 # Compiler to be used
-CC:= gcc
+CC = gcc
 
 # Source files
-SRC:= main.c school.c
+SRC = main.c school.c
 
 # Object files
-OBJ:= $(SRC:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 # Target name
-NAME:= school
+NAME = school
 
-.PHONY: all
 
 all: $(NAME)
 
 # Linking objects files to generate executable
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
-
-%.o: %.c
-	$(CC) -c $< -o $@
