@@ -37,9 +37,6 @@ int recurse_binary(int *array, size_t left, size_t right, int value)
 	if ((ssize_t) left > (ssize_t) right)
 		return (-1);
 
-	if (left == right)
-		return ((array[left] == value) ? (int) left : -1);
-
 	printf("Searching in array: ");
 	for (i = left; i <= right; ++i)
 	{
@@ -51,6 +48,9 @@ int recurse_binary(int *array, size_t left, size_t right, int value)
 	putchar('\n');
 
 	mid = left + (right - left) / 2;
+
+	if (left == right)
+		return ((array[left] == value) ? (int) left : -1);
 
 	if (array[mid] == value && (mid == left || array[mid - 1] != value))
 		return (mid);
