@@ -52,15 +52,11 @@ int recurse_binary(int *array, size_t left, size_t right, int value)
 
 	mid = left + (right - left) / 2;
 
-	if (array[mid] == value)
-	{
-		int idx = recurse_binary(array, left, mid, value);
-
-		return ((idx == -1) ? (int) mid : idx);
-	}
+	if (array[mid] == value && (mid == left || array[mid - 1] != value))
+		return (mid);
 
 	if (array[mid] < value)
 		return (recurse_binary(array, mid + 1, right, value));
 
-	return (recurse_binary(array, left, mid - 1, value));
+	return (recurse_binary(array, left, mid, value));
 }
