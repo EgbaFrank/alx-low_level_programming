@@ -23,7 +23,8 @@ int advanced_binary(int *array, size_t size, int value)
  * recurse_binary - Actual recursive binary search
  *
  * @array: Pointer to the first element in the array
- * @size: Number of elements in the array
+ * @left: Lower boundary of the array
+ * @right: Higher boundary of the array
  * @value: Value to be found
  *
  * Return: The index of the value if found, otherwise -1
@@ -59,9 +60,9 @@ int recurse_binary(int *array, size_t left, size_t right, int value)
 	}
 
 	else if (array[mid] < value)
-		return recurse_binary(array, mid + 1, right, value);
+		return (recurse_binary(array, mid + 1, right, value));
 	else
-		return recurse_binary(array, left, mid - 1, value);
+		return (recurse_binary(array, left, mid - 1, value));
 
 	return (result);
 }
