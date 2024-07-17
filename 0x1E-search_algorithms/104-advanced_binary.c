@@ -32,14 +32,13 @@ int advanced_binary(int *array, size_t size, int value)
 
 int recurse_binary(int *array, size_t left, size_t right, int value)
 {
-	int result = -1;
 	size_t i, mid;
 
 	if ((ssize_t) left > (ssize_t) right)
 		return (-1);
 
 	if (left == right)
-		return ((array[left] == value) ? (ssize_t) left : -1);
+		return ((array[left] == value) ? (int) left : -1);
 
 	printf("Searching in array: ");
 	for (i = left; i <= right; ++i)
@@ -51,18 +50,17 @@ int recurse_binary(int *array, size_t left, size_t right, int value)
 	}
 	putchar('\n');
 
-	mid = (left + right) / 2;
+	mid = left + (right - left) / 2;
 
 	if (array[mid] == value)
 	{
-		result = recurse_binary(array, left, mid, value);
-		return ((result == -1) ? (int) mid : result);
+		int idx = recurse_binary(array, left, mid, value);
+
+		return ((idx == -1) ? (int) mid : idx);
 	}
 
-	else if (array[mid] < value)
+	if (array[mid] < value)
 		return (recurse_binary(array, mid + 1, right, value));
-	else
-		return (recurse_binary(array, left, mid - 1, value));
 
-	return (result);
+	return (recurse_binary(array, left, mid - 1, value));
 }
